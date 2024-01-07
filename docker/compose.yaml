@@ -1,0 +1,22 @@
+services:
+  shopappdb:
+    image: mysql:8.0.29
+    container_name: shopappdb
+    environment:
+      MYSQL_ROOT_PASSWORD: "Passw0rd!"
+    restart: always
+    volumes:
+      - mysql_data:/var/lib/mysql
+    ports:
+      - "3307:3306"
+
+#network section
+networks:
+  default:
+    name: shopapp
+    driver: bridge
+
+#volumes section
+volumes:
+  mysql_data:
+    name: mysql_data
